@@ -1,0 +1,136 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="container">
+  <br />
+  <form action="#" method="POST" enctype="multipart/form-data">
+    <div class="input-group">
+      <div style = "position:relative; left:-25px; top:2px;">
+      <a href="{{ url_for('profile') }}"style="font-size: 25px;><i class="fas fa-user-circle fa-4x"></i>Profile</a>
+      </div>
+      <input type="file" class="form-control" name="image_name" required />
+      <input type="submit" value="UPLOAD" class="btn btn-outline-secondary" />
+    </div>
+    <div style = "position:relative; left:1323px; top:-33px;">
+      <!-- <input type="submit" value="logout" class="btn btn-outline-secondary" /> -->
+      
+      <a href="{{ url_for('logout') }}"style="font-size: 25px;><i class="fas fa-sign-out-alt"></i>Logout</a>
+   </div>
+   <!-- <div>
+    <button class="btn" ><i class="fa fa-bars"style="font-size: 28px;></i></button> 
+   </div> -->
+   
+  
+    
+  </form>
+</div>
+
+
+{% if upload %}
+<!-- <div class="container">
+  <br />
+  <table>
+    <tr>
+      <td>
+        <img
+          class="rounded float-left img-fluid"
+          src="C:/Class/Thesis/Automatic-License-Plate-Detection-main/WebbApp/static/upload/{{upload_image}}"
+          alt=""
+        />
+      </td>
+      <td>
+        <img
+          class="rounded float-right img-fluid"
+          src="C:/Class/Thesis/Automatic-License-Plate-Detection-main/WebbApp/static/predict/{{upload_image}}"
+          alt=""
+        />
+      </td>
+    </tr>
+  </table>
+  <br />
+  <table style="border: solid black; width: 100%">
+    <tr style="border: solid black">
+      <th>CROPPEED LICENCE PLATE IMAGE</th>
+      <th>TEXT</th>
+    </tr>
+    <tr style="border: solid black">
+      <td>
+        <img class="img-fluid" src="C:/Class/Thesis/Automatic-License-Plate-Detection-main/WebbApp/static/roi/{{ upload_image }}" alt="" />
+      </td>
+      <td style="background-color: #c1dce0">
+        <h1 class="display-8">{{ text }}</h1>
+      </td>
+    </tr>
+  </table>
+</div> -->
+<div class="container">
+  <br />
+  <table>
+    <tr>
+      <td>
+        <img
+          class="rounded float-left img-fluid"
+          src="C:/Class/Thesis/Automatic-License-Plate-Detection-main/WebbApp/static/upload/{{upload_image}}"
+          alt=""
+        />
+      </td>
+      <td>
+        <img
+          class="rounded float-right img-fluid"
+          src="C:/Class/Thesis/Automatic-License-Plate-Detection-main/WebbApp/static/predict/{{upload_image}}"
+          alt=""
+        />
+      </td>
+    </tr>
+  </table>
+  <br />
+  <img src="https://res.cloudinary.com/dxoqovkoi/image/upload/v1685420508/final_image_rwt1tf.jpg" alt="Girl in a jacket" width="1295" height="338">
+  <table style="border: solid black; width: 100%">
+    <tr style="border: solid black">
+    
+      <th>LICENSE PLATE NO.</th>
+      <th>ENTRY TIME</th>
+      <th>EXIT TIME</th>
+
+    </tr>
+    <tr style="border: solid black">
+    
+      <td style="background-color: #c1dce0">
+        <h1 class="display-8">{{ text }}</h1>
+      </td>
+      <td>
+        <span id='date-time'></span>
+      </td>
+      <td>
+        <body onload="setTime()">
+
+          <input id="field" type="text" name="field" value="" size="11" />
+          <button type="button" onclick="setTime();">Get Exit Time</button>
+          
+          </body>
+      </td>
+   
+
+    </tr>
+  </table>
+  <br> </br>
+  <form action="/action_page.php">
+    <label>Time of entry:</label>
+    <input type="time" id="time1" name="time">
+    
+    <label>Time of exit:</label>
+    <input type="time" id="time2" name="time">
+    <button type="button" onclick="setTime();">Print Receipt</button>
+  </form>
+  
+  <div>
+    <h1>Total time spent in the parking lot</h1>
+    <div class="result">Total time spent : <span id="result"></span></div>
+    <hr> </hr>
+    <div class="cost">Total cost (Rs 20 / hr) : <span style="font-weight: 800; font-size: xx-large;" id="cost"></span></div> 
+    <br>
+  </br>
+  </div>
+
+</div>
+
+{% endif %} {% endblock %}
+
